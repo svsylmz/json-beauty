@@ -1,0 +1,70 @@
+"use client";
+import { FC } from "react";
+import toast from "react-hot-toast";
+
+interface Props {
+  jsonText: string;
+  setJsonText: (val: string) => void;
+  setParsedJson: (val: any) => void;
+}
+
+const JsonActions: FC<Props> = ({ jsonText, setJsonText, setParsedJson }) => {
+  const handleBeautify = () => {
+    try {
+      const obj = JSON.parse(jsonText);
+      const pretty = JSON.stringify(obj, null, 2);
+      setJsonText(pretty);
+      setParsedJson(obj);
+      toast.success("Beautified");
+    } catch {
+      toast.error("Invalid JSON");
+    }
+  };
+
+  const handleMinify = () => {
+    try {
+      const obj = JSON.parse(jsonText);
+      const compact = JSON.stringify(obj);
+      setJsonText(compact);
+      setParsedJson(obj);
+      toast.success("Minified");
+    } catch {
+      toast.error("Invalid JSON");
+    }
+  };
+
+  const handleValidate = () => {
+    try {
+      const obj = JSON.parse(jsonText);
+      setParsedJson(obj);
+      toast.success("Valid JSON");
+    } catch {
+      toast.error("Invalid JSON");
+    }
+  };
+
+  return (
+    <div className="flex gap-4 flex-wrap">
+      <button
+        onClick={handleBeautify}
+        className="bg-blue-600 px-4 py-2 rounded-2xl hover:bg-blue-700"
+      >
+        Beautify
+      </button>
+      <button
+        onClick={handleMinify}
+        className="bg-green-600 px-4 py-2 rounded-2xl hover:bg-green-700"
+      >
+        Minify
+      </button>
+      <button
+        onClick={handleValidate}
+        className="bg-yellow-600 px-4 py-2 rounded-2xl hover:bg-yellow-700"
+      >
+        Validate
+      </button>
+    </div>
+  );
+};
+
+export default JsonActions;
