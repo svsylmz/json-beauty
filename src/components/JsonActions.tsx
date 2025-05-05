@@ -8,6 +8,10 @@ interface Props {
   setParsedJson: (val: any) => void;
 }
 
+function encodeJsonToUrl(json: string) {
+  return btoa(encodeURIComponent(json));
+}
+
 const JsonActions: FC<Props> = ({ jsonText, setJsonText, setParsedJson }) => {
   const handleBeautify = () => {
     try {
@@ -53,7 +57,7 @@ const JsonActions: FC<Props> = ({ jsonText, setJsonText, setParsedJson }) => {
       </button>
       <button
         onClick={handleMinify}
-        className="bg-green-600 px-4 py-2 rounded-2xl hover:bg-green-700"
+        className="bg-amber-600 px-4 py-2 rounded-2xl hover:bg-green-700"
       >
         Minify
       </button>
@@ -62,6 +66,22 @@ const JsonActions: FC<Props> = ({ jsonText, setJsonText, setParsedJson }) => {
         className="bg-yellow-600 px-4 py-2 rounded-2xl hover:bg-yellow-700"
       >
         Validate
+      </button>
+
+      <button
+        onClick={() => {
+          try {
+            const encoded = encodeJsonToUrl(jsonText);
+            const url = `${window.location.origin}?data=${encoded}`;
+            navigator.clipboard.writeText(url);
+            toast.success("Link copied to clipboard");
+          } catch {
+            toast.error("Invalid JSON");
+          }
+        }}
+        className="bg-emerald-600 px-4 py-2 rounded-2xl hover:bg-red-700"
+      >
+        Share Link
       </button>
     </div>
   );
