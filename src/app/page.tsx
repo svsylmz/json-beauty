@@ -38,7 +38,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-gray-900 text-white px-4 py-6 space-y-6">
       <Toaster position="top-right" />
       <div className="flex items-center justify-left gap-3 flex-wrap">
-        <span className="text-5xl">{`{ JB }`}</span>
+        <div className="text-5xl">{`{ JB }`}</div>
         <h1 className="text-2xl md:text-3xl font-bold text-left">
           JSON Beauty
         </h1>
