@@ -30,7 +30,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-F61MH7761L"
@@ -44,6 +43,11 @@ export default function RootLayout({
               gtag('config', 'G-F61MH7761L');
             `,
           }}
+        />
+
+        <meta
+          name="google-site-verification"
+          content="zEYBiWyOqJ9vhpHRNaVmy_NfXLyQNuWbjG3blGO1GoI"
         />
       </head>
       <body
