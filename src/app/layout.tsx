@@ -15,8 +15,10 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Json Beauty | Viewer",
-  description: "Json Beauty & Viewer",
+  title:
+    "JSON Beautifier & Viewer Online | Format, Validate & Explore JSON Instantly",
+  description:
+    "Beautify, validate, format and view your JSON data instantly with our fast and easy-to-use online JSON viewer. Perfect for developers, analysts, and data debugging.",
   icons: {
     icon: "/logo.png",
   },
