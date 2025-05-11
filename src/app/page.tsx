@@ -25,7 +25,7 @@ export default function HomePage() {
       const parsed = JSON.parse(jsonText);
       setParsedJson(parsed);
     } catch {
-      setParsedJson({}); // Geçersiz JSON'da boş göster
+      setParsedJson({});
     }
   }, [jsonText]);
 
