@@ -10,6 +10,7 @@ import ExportControls from "@/components/ExportControls";
 import JsonGrid from "@/components/JsonGrid";
 import LandingInfo from "@/components/LandingInfo";
 import toast from "react-hot-toast";
+import SplitPane from "react-split-pane";
 
 export default function HomePage() {
   const [jsonText, setJsonText] = useState<string>("");
@@ -51,20 +52,21 @@ export default function HomePage() {
             setJsonText={setJsonText}
             setParsedJson={setParsedJson}
           />
+
+          <UrlLoader setJsonText={setJsonText} />
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
           <button
             onClick={() =>
               setViewMode((prev) => (prev === "tree" ? "grid" : "tree"))
             }
-            className="bg-gray-700 px-4 py-2 rounded-2xl hover:bg-gray-600"
+            className="bg-amber-800 px-4 py-2 rounded-2xl hover:bg-amber-700 cursor-pointer"
           >
             {viewMode === "tree"
               ? "Switch to Grid View"
               : "Switch to Tree View"}
           </button>
-          <UrlLoader setJsonText={setJsonText} />
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
           <FileControls jsonText={jsonText} setJsonText={setJsonText} />
           <ExportControls jsonText={jsonText} />
         </div>

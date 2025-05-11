@@ -10,7 +10,6 @@ interface Props {
 const TreeView: FC<Props> = ({ data }) => {
   return (
     <div className="h-screen bg-gray-800 rounded-2xl p-4 overflow-auto border border-gray-700">
-      <h2 className="text-lg font-semibold mb-2">Tree View</h2>
       <ReactJson
         src={data}
         name={false}

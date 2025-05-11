@@ -6,46 +6,42 @@ interface Props {
 }
 
 const JsonGrid: FC<Props> = ({ data }) => {
-  if (!Array.isArray(data)) {
-    return (
-      <div className="p-4 border border-yellow-500 rounded">
-        JSON data is not an array. Grid view only supports array of objects.
-      </div>
-    );
-  }
-
-  const headers = Array.from(
-    new Set(data.flatMap((item) => Object.keys(item)))
-  );
-
-  return (
-    <div className="overflow-auto border border-gray-700 rounded-2xl">
-      <table className="min-w-full table-auto border-collapse text-sm text-left">
-        <thead className="bg-gray-700 text-white">
-          <tr>
-            {headers.map((key) => (
-              <th key={key} className="px-4 py-2 border border-gray-600">
-                {key}
-              </th>
+  const renderValue = (value: any): JSX.Element | string => {
+    if (Array.isArray(value)) {
+      return (
+        <table className="border border-black w-full my-1">
+          <tbody>
+            {value.map((item, i) => (
+              <tr key={i}>
+                <td className="border border-black p-1">{renderValue(item)}</td>
+              </tr>
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row: any, idx: number) => (
-            <tr key={idx} className="even:bg-gray-800 odd:bg-gray-900">
-              {headers.map((key) => (
-                <td key={key} className="px-4 py-2 border border-gray-700">
-                  {typeof row[key] === "object"
-                    ? JSON.stringify(row[key])
-                    : String(row[key])}
+          </tbody>
+        </table>
+      );
+    } else if (typeof value === "object" && value !== null) {
+      return (
+        <table className="border border-white w-full my-1">
+          <tbody>
+            {Object.entries(value).map(([key, val], idx) => (
+              <tr key={idx}>
+                <td className="border-2 border-white p-1 align-top font-semibold">
+                  {key}
                 </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+                <td className="border-2 border-white p-1">
+                  {renderValue(val)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    } else {
+      return String(value);
+    }
+  };
+
+  return <div className="overflow-auto">{renderValue(data)}</div>;
 };
 
 export default JsonGrid;
