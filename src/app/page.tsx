@@ -10,7 +10,6 @@ import ExportControls from "@/components/ExportControls";
 import JsonGrid from "@/components/JsonGrid";
 import LandingInfo from "@/components/LandingInfo";
 import toast from "react-hot-toast";
-import SplitPane from "react-split-pane";
 
 export default function HomePage() {
   const [jsonText, setJsonText] = useState<string>("");
@@ -20,6 +19,15 @@ export default function HomePage() {
   function decodeJsonFromUrl(encoded: string) {
     return decodeURIComponent(atob(encoded));
   }
+
+  useEffect(() => {
+    try {
+      const parsed = JSON.parse(jsonText);
+      setParsedJson(parsed);
+    } catch {
+      setParsedJson({}); // Geçersiz JSON'da boş göster
+    }
+  }, [jsonText]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
