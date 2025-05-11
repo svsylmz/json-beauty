@@ -51,19 +51,19 @@ const JsonActions: FC<Props> = ({ jsonText, setJsonText, setParsedJson }) => {
     <div className="flex gap-4 flex-wrap">
       <button
         onClick={handleBeautify}
-        className="bg-blue-600 px-4 py-2 rounded-2xl hover:bg-blue-700"
+        className="bg-blue-600 px-4 py-2 rounded-2xl hover:bg-blue-700 cursor-pointer"
       >
         Beautify
       </button>
       <button
         onClick={handleMinify}
-        className="bg-amber-600 px-4 py-2 rounded-2xl hover:bg-green-700"
+        className="bg-amber-600 px-4 py-2 rounded-2xl hover:bg-green-700 cursor-pointer"
       >
         Minify
       </button>
       <button
         onClick={handleValidate}
-        className="bg-yellow-600 px-4 py-2 rounded-2xl hover:bg-yellow-700"
+        className="bg-yellow-600 px-4 py-2 rounded-2xl hover:bg-yellow-700 cursor-pointer"
       >
         Validate
       </button>
@@ -79,7 +79,7 @@ const JsonActions: FC<Props> = ({ jsonText, setJsonText, setParsedJson }) => {
             toast.error("Invalid JSON");
           }
         }}
-        className="bg-emerald-600 px-4 py-2 rounded-2xl hover:bg-red-700"
+        className="bg-emerald-600 px-4 py-2 rounded-2xl hover:bg-emerald-700 cursor-pointer"
       >
         Share Link
       </button>

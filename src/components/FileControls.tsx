@@ -42,7 +42,7 @@ const FileControls: FC<Props> = ({ jsonText, setJsonText }) => {
       </label>
       <button
         onClick={handleDownload}
-        className="bg-purple-600 px-4 py-2 rounded-2xl hover:bg-purple-700"
+        className="bg-purple-600 px-4 py-2 rounded-2xl hover:bg-purple-700 cursor-pointer"
       >
         Download JSON
       </button>

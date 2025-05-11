@@ -42,13 +42,13 @@ const ExportControls: FC<Props> = ({ jsonText }) => {
     <div className="flex gap-4 flex-wrap">
       <button
         onClick={handleExportCSV}
-        className="bg-cyan-600 px-4 py-2 rounded-2xl hover:bg-cyan-700"
+        className="bg-cyan-600 px-4 py-2 rounded-2xl hover:bg-cyan-700 cursor-pointer"
       >
         Export as CSV
       </button>
       <button
         onClick={handleExportXML}
-        className="bg-pink-600 px-4 py-2 rounded-2xl hover:bg-pink-700"
+        className="bg-pink-600 px-4 py-2 rounded-2xl hover:bg-pink-700 cursor-pointer"
       >
         Export as XML
       </button>

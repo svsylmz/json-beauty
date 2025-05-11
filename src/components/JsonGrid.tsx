@@ -9,11 +9,13 @@ const JsonGrid: FC<Props> = ({ data }) => {
   const renderValue = (value: any): ReactNode | string => {
     if (Array.isArray(value)) {
       return (
-        <table className="border border-black w-full my-1">
+        <table className="border border-white w-full my-1">
           <tbody>
             {value.map((item, i) => (
               <tr key={i}>
-                <td className="border border-black p-1">{renderValue(item)}</td>
+                <td className="border-2 border-white p-1">
+                  {renderValue(item)}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -41,7 +43,7 @@ const JsonGrid: FC<Props> = ({ data }) => {
     }
   };
 
-  return <div className="overflow-auto">{renderValue(data)}</div>;
+  return <div className="overflow-auto h-screen">{renderValue(data)}</div>;
 };
 
 export default JsonGrid;
