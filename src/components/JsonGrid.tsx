@@ -1,12 +1,12 @@
 "use client";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 interface Props {
   data: any;
 }
 
 const JsonGrid: FC<Props> = ({ data }) => {
-  const renderValue = (value: any): JSX.Element | string => {
+  const renderValue = (value: any): ReactNode | string => {
     if (Array.isArray(value)) {
       return (
         <table className="border border-black w-full my-1">
