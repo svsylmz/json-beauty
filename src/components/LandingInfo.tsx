@@ -36,7 +36,6 @@ const LandingInfo = () => {
             <li>No data is stored – privacy guaranteed</li>
             <li>Works entirely in your browser</li>
             <li>Fast, responsive, and mobile-friendly</li>
-            <li>No ads, no clutter, no distractions</li>
             <li>Open-source and free to use</li>
           </ul>
         </div>

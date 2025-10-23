@@ -10,6 +10,7 @@ import ExportControls from "@/components/ExportControls";
 import JsonGrid from "@/components/JsonGrid";
 import LandingInfo from "@/components/LandingInfo";
 import toast from "react-hot-toast";
+import Script from "next/script";
 
 export default function HomePage() {
   const [jsonText, setJsonText] = useState<string>("");
@@ -19,6 +20,11 @@ export default function HomePage() {
   function decodeJsonFromUrl(encoded: string) {
     return decodeURIComponent(atob(encoded));
   }
+
+  <Script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5160036024910313"
+  ></Script>;
 
   useEffect(() => {
     try {
